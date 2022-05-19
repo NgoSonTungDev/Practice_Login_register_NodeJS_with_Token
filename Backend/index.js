@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/auth")
+const userRoute = require("./Routes/user")
 
 const app = express();
 
@@ -29,8 +30,13 @@ app.listen(8000, () => {
 
 //Routes
 app.use("/api/auth",authRoute)
+app.use("/api/user",userRoute)
 
 //AUTHENTICATION (so sáng user & pass vs database)
 
 
 //AUTHORIZATION (phân quyền)
+
+
+//json web token
+

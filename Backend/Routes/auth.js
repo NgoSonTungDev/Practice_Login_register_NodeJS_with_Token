@@ -3,7 +3,6 @@ const router = require("express").Router();
 
 router.post("/register",authControllers.register)
 router.post("/login",authControllers.loginUser)
-router.get("/getall",authControllers.getAllUser)
 
 
 

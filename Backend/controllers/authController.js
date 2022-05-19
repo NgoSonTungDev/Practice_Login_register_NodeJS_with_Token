@@ -1,5 +1,7 @@
 const bcrypt = require("bcrypt"); //(mã hóa password)
 const User = require("../models/user");
+const jwt = require("jsonwebtoken");
+
 const authControllers = {
   //register
   register: async (req, res) => {
@@ -24,6 +26,7 @@ const authControllers = {
   loginUser: async (req, res) => {
     try {
       const user = await User.findOne({ username: req.body.username });
+     
       if (!user) {
         res.status(404).json("User not found !");
       }
@@ -35,16 +38,17 @@ const authControllers = {
         res.status(404).json("Wrong password !!!");
       }
       if (user && valiPassword) {
-        res.status(202).json(user);
+        const accessToken = jwt.sign(
+          {
+            id: user.id,
+            admin: user.admin,
+          },
+          process.env.JWT_Acess_Key,
+          { expiresIn: "10d" } //thơi gian bắt buộc đăng nhập lại
+        );
+        const {password,...orther} = user._doc //khoogn cho hiene pass
+        res.status(202).json({...orther,accessToken});
       }
-    } catch (error) {
-      res.status(500).json(error);
-    }
-  },
-  getAllUser: async (req, res) => {
-    try {
-      const user = await User.find();
-      res.status(202).json(user);
     } catch (error) {
       res.status(500).json(error);
     }
