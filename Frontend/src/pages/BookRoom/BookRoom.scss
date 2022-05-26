@@ -1,0 +1,150 @@
+.container_bookroom {
+  width: 100%;
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .form_book_room {
+    overflow: hidden;
+    transform: translateY(70px);
+    border-radius: 8px;
+    margin-left: 25%;
+    width: 800px;
+    height: 640px;
+    background-color: #fff;
+
+    .tieude {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      .tieude_1 {
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        background-color: #c1c6d4;
+      }
+      .tieude_2 {
+        justify-content: space-between;
+        display: flex;
+        position: absolute;
+        width: 128px;
+        height: 40px;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        .tieude_2_1 {
+          width: 20px;
+          height: 20px;
+          background-color: #c1c6d4;
+          border-radius: 0% 100% 0% 100% / 0% 0% 100% 100%;
+        }
+        .tieude_2_2 {
+          width: 100px;
+          height: 20px;
+          background-color: #c1c6d4;
+          color: #0a224c;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 24px;
+          text-align: center;
+          p {
+            margin-top: -5px;
+          }
+        }
+        .tieude_2_3 {
+          width: 20px;
+          height: 20px;
+          background-color: #c1c6d4;
+          border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%;
+        }
+      }
+    }
+
+    .form_book_room_2 {
+      width: 90%;
+      margin-top: 10px;
+      margin-left: 5%;
+      height: 500px;
+      .form_book_room_2_1 {
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+        align-items: center;
+        display: flex;
+        .form_book_room_2_1_1 {
+          width: 40%;
+          height: 30px;
+          p {
+            font-size: 17px;
+          }
+        }
+        .form_book_room_2_1_2 {
+          width: 60%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          input {
+            outline: none;
+            padding: 3px 15px;
+            width: 200px;
+            height: 30px;
+            border: none;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+              rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            &:nth-child(2) {
+              margin-left: 20px;
+            }
+          }
+          select{
+            margin-left: 25px;
+            width: 200px;
+            height: 30px;
+            outline: none;
+            border: none;
+            border: 1px solid #0a224c;
+            cursor: pointer;
+          }
+          .emailinput {
+            width: 550px;
+          }
+          h3 {
+            margin-top: 5px;
+          }
+        }
+
+        .form_book_room_2_1_2_checkbox {
+          width: 60%;
+          height: 70px;
+          margin-top: 48px;
+          input {
+            cursor: pointer;
+            margin-left: 12px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0984e3;
+      padding: 8px 30px;
+      color: #fff;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      &:hover {
+        border: 1px solid #0984e3;
+        background: #fff;
+        color: #0984e3;
+        font-weight: 700;
+      }
+    }
+  }
+}
