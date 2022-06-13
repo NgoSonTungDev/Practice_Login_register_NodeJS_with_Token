@@ -11,7 +11,6 @@ const authControllers = {
       // mã hóa mât khâu
       const salt = await bcrypt.genSalt(10);
       const hashed = await bcrypt.hash(req.body.password, salt);
-
       ///tạo user
       const newUser = await new User({
         username: req.body.username,
@@ -60,6 +59,7 @@ const authControllers = {
       if (!valiPassword) {
         res.status(404).json("Wrong password !!!");
       }
+
       if (user && valiPassword) {
         const accessToken = authControllers.generateAccessToken(user);
         const refreshToken = authControllers.generateRefeshToken(user);
@@ -73,10 +73,12 @@ const authControllers = {
         const { password, ...orther } = user._doc; //khoogn cho hiene pass
         res.status(202).json({ ...orther, accessToken });
       }
+
     } catch (error) {
       res.status(500).json(error);
     }
   },
+
   requestRefreshToken: async (req, res) => {
     //take refersh token from user
     const refreshToken = req.cookies.refreshToken;
@@ -88,9 +90,7 @@ const authControllers = {
       if (err) {
         console.log(err);
       }
-
       refershTokenArray = refershTokenArray.filter((token)=>token !== refreshToken)
-
       const NewaccsessToken = authControllers.generateAccessToken(user);
       const newrefreshToken = authControllers.generateRefeshToken(user);
       refershTokenArray.push(newrefreshToken)

@@ -8,6 +8,10 @@ const authRoute = require("./Routes/auth")
 const userRoute = require("./Routes/user")
 
 const app = express();
+app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
+app.use(bodyParser.json());
 
 dotenv.config();
 
@@ -19,10 +23,7 @@ mongoose.connect(process.env.MONGODB_CONNECT, (error) => {
   }
 });
 
-app.use(cors());
-app.use(cookieParser());
-app.use(express.json());
-app.use(bodyParser.json());
+
 
 app.listen(8000, () => {
   console.log("server is runninr .... ");
